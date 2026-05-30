@@ -1,0 +1,880 @@
+/* ========================================================
+   CSS ABSOLUTO DO ZERO - PROJETO VIVA MULHER
+   ======================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
+    background-color: #f0fdfa; /* Fundo de fallback */
+}
+
+/* --- SISTEMA DE TROCA DE TELAS --- */
+.view-ativa { display: flex !important; }
+.view-oculta { display: none !important; }
+
+/* ========================================================
+   CABEÇALHO FIXO E NAVEGAÇÃO
+   ======================================================== */
+.header-transparente {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 35px 5% 10px 5%; /* Mais espaço no topo para descer os botões */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 100;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.logo-container {
+    position: absolute;
+    top: 10px;
+    left: 5%;
+    z-index: 101;
+}
+
+.logo-img {
+    height: 125px; /* Logo maior, conforme solicitado */
+    transition: 0.3s ease;
+}
+
+#main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+#main-nav ul li a {
+    color: #334155; /* Texto escuro para contraste no fundo claro do botão */
+    background-color: rgba(255, 255, 255, 0.85); /* Fundo branco semi-transparente */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 10px 20px;
+    border-radius: 50px; /* Formato de pílula (botão redondo) */
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+#main-nav ul li a:hover {
+    background-color: #0d9488; /* Verde água no hover */
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(13, 148, 136, 0.3);
+}
+
+/* Botão de Destaque (Login/Cadastro) */
+#main-nav ul li a.nav-destaque {
+    background-color: #e83e8c; /* Rosa para dar um destaque extra */
+    color: white;
+}
+
+#main-nav ul li a.nav-destaque:hover {
+    background-color: #c2185b;
+}
+
+/* ========================================================
+   TELA 1: A PÁGINA INICIAL COM VÍDEO (HERO SPLIT)
+   ======================================================== */
+#home-view {
+    width: 100%;
+    flex-direction: column;
+}
+
+.hero-gradient-split {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background-color: #f8fafc; /* Fundo off-white na esquerda */
+}
+
+.hero-video-bg {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 65%; /* O vídeo ocupa a parte direita */
+    height: 100%;
+    z-index: 0;
+}
+
+.hero-video-bg video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-video-gradient {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* Degradê ainda menor: sólido só até 35% e some totalmente na metade da tela (50%) */
+    background: linear-gradient(to right, #f8fafc 35%, rgba(248, 250, 252, 0) 50%);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.hero-content-container {
+    position: relative;
+    z-index: 2;
+    width: 50%; /* O conteúdo restrito à esquerda */
+    padding-left: 5%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.conteudo-clean {
+    max-width: 600px;
+    animation: fadeInLeft 1.5s ease-out;
+}
+
+@keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.hero-subtitle-clean {
+    color: #64748b;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.hero-title-clean {
+    background: linear-gradient(135deg, #e83e8c 0%, #0d9488 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 70px;
+    font-weight: 900;
+    margin-bottom: 35px;
+    line-height: 1.1;
+    text-align: left;
+}
+
+.hero-features-clean {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.feature-item-clean {
+    background: white;
+    color: #334155;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    transition: 0.3s;
+}
+
+.feature-item-clean:hover {
+    transform: translateY(-3px);
+    border-color: #0d9488;
+    color: #0d9488;
+}
+
+.feature-item-clean i {
+    color: #e83e8c; /* Rosa para destaque */
+}
+
+/* ========================================================
+   SEÇÃO DE SERVIÇOS (CARDS)
+   ======================================================== */
+.servicos-section {
+    position: relative;
+    z-index: 20;
+    margin-top: -150px; /* Sobrepõe o final do hero mais acima */
+    padding: 0 5% 50px 5%;
+}
+
+/* --- Carrossel de Serviços --- */
+.carousel-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 15px;
+}
+
+.carousel-btn {
+    background: white;
+    color: #0d9488;
+    border: none;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+    z-index: 10;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn:hover {
+    background: #0d9488;
+    color: white;
+    transform: scale(1.1);
+}
+
+.servicos-carousel {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* Permite rolagem */
+    padding: 10px 5px 60px 5px; /* Espaço para expansão sanfona e sombra */
+    flex: 1;
+    align-items: start;
+    /* Esconder scrollbar nativa para design limpo */
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+.servicos-carousel::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+}
+
+.servico-card {
+    flex: 0 0 calc(30% - 15px);
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    /* Transição apenas em propriedades GPU - sem layout reflow */
+    transition: transform 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                box-shadow 0.35s ease,
+                border-color 0.35s ease;
+    cursor: pointer;
+    border: 1px solid #f1f5f9;
+    /* Avisa o browser para preparar o elemento na GPU */
+    will-change: transform;
+}
+
+.servico-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    border-color: #0d9488;
+}
+
+.servico-img {
+    width: 100%;
+    height: 160px;
+    background-color: #e2e8f0;
+    overflow: hidden;
+}
+
+.servico-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+    will-change: transform;
+}
+
+.servico-card:hover .servico-img img {
+    transform: scale(1.05);
+}
+
+.servico-conteudo {
+    padding: 20px;
+    text-align: center;
+    /* position relative para o detalhe ficar posicionado corretamente */
+    position: relative;
+}
+
+.servico-conteudo h3 {
+    color: #0d9488;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.servico-resumo {
+    color: #64748b;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+/* --- Efeito de Detalhes no Hover (sem reflow de layout) --- */
+.servico-detalhes {
+    /* Escondido via opacity e transform, não max-height */
+    /* Isso evita recalculo de layout (reflow) e garante fluidez total */
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.35s ease, transform 0.35s ease;
+    text-align: left;
+    /* Reserva o espaço fisicamente para não mudar o layout ao aparecer */
+    visibility: hidden;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    padding: 0 20px 20px 20px;
+    border-radius: 0 0 20px 20px;
+}
+
+.servico-detalhes p {
+    font-size: 13px;
+    color: #475569;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 15px;
+    margin-top: 0;
+    line-height: 1.6;
+}
+
+.servico-card:hover .servico-detalhes {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+/* Responsividade do Hero e Servicos */
+@media (max-width: 900px) {
+    .hero-title-clean {
+        font-size: 45px;
+    }
+    .hero-subtitle-clean {
+        font-size: 18px;
+    }
+    .servico-card {
+        flex: 0 0 calc(50% - 10px); /* 2 cards no Tablet */
+    }
+    .servicos-section {
+        margin-top: 20px; /* Remove sobreposição no mobile */
+    }
+}
+
+@media (max-width: 600px) {
+    .servico-card {
+        flex: 0 0 100%; /* 1 card no Mobile */
+    }
+    .carousel-wrapper {
+        gap: 5px;
+    }
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
+
+/* ========================================================
+   TELAS 2 e 3: LOGIN E CADASTRO (Fundo Gradiente)
+   ======================================================== */
+.view-auth {
+    background: linear-gradient(135deg, #fdf2f8 0%, #e0f2f1 100%);
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-card {
+    background-color: white;
+    width: 100%;
+    max-width: 400px;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+}
+
+.auth-card h2 {
+    font-family: 'Montserrat', sans-serif;
+    color: #0d9488;
+    font-size: 32px;
+    margin-bottom: 25px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-weight: 700;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.input-group input, .input-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    background-color: #f8fafc;
+    transition: 0.3s;
+}
+
+.input-group input:focus, .input-group select:focus {
+    outline: none;
+    border-color: #0d9488;
+    background-color: white;
+}
+
+.btn-auth {
+    width: 100%;
+    background-color: #38b2ac; /* Cor exata da imagem */
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.3s;
+}
+
+.btn-auth:hover {
+    background-color: #0d9488;
+}
+
+.auth-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #64748b;
+}
+
+.auth-link a {
+    color: #0d9488;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.auth-link a:hover {
+    text-decoration: underline;
+}
+
+/* ========================================================
+   JANELA FLUTUANTE DE DESCRIÇÕES (MODAL)
+   ======================================================== */
+.modal-oculto {
+    display: none !important;
+}
+
+.modal-ativo {
+    display: flex !important;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6); /* Fundo escuro semi-transparente */
+    backdrop-filter: blur(4px); /* Efeito de desfoque elegante no fundo */
+    z-index: 9999; /* Garante que fica por cima de ABSOLUTAMENTE tudo */
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.btn-fechar-modal {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #64748b;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-fechar-modal:hover {
+    color: #e83e8c; /* Fica rosa ao passar o rato */
+}
+
+/* ========================================================
+   SEÇÕES: SOBRE E EQUIPE (SCROLL)
+   ======================================================== */
+.container-padrao {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+}
+
+.container-carrossel {
+    max-width: 1600px; /* Mais largo para caber mais cards */
+    width: 96%;
+    margin: 0 auto;
+    padding: 80px 20px 20px 20px; /* Menos padding inferior para não afastar tanto */
+}
+
+.section-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 40px;
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+.section-subtitle {
+    font-size: 18px;
+    color: #64748b;
+    margin-bottom: 50px;
+}
+
+.text-center { text-align: center; }
+.highlight-pink { color: #e83e8c; }
+.highlight-teal { color: #0d9488; }
+
+/* Sobre o Projeto */
+.sobre-section {
+    background-color: #ffffff;
+    position: relative;
+    overflow: hidden; /* Mantém as formas limitadas dentro da seção */
+}
+
+/* --- Vídeo de Fundo --- */
+.sobre-bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    transform: scale(1.3); /* Zoom maior para esconder totalmente a marca d'água */
+}
+
+.sobre-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Overlay mais escuro/sutil para o vídeo de fundo brilhar, mas garantir o contraste */
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+}
+
+.sobre-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.sobre-texto {
+    background: rgba(255, 255, 255, 0.9); /* Fundo branco mais sólido para garantir a leitura sobre o vídeo */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.sobre-texto p {
+    font-size: 18px;
+    color: #334155; /* Texto um pouco mais escuro para melhor leitura no azul */
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
+
+.estatisticas-sobre {
+    display: flex;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.stat-item h3 {
+    font-size: 28px;
+    color: #0ea5e9; /* Azul sólido para combinar com o card */
+    font-family: 'Montserrat', sans-serif;
+}
+
+.stat-item p {
+    font-size: 14px;
+    font-weight: bold;
+    color: #64748b;
+    margin-top: 5px;
+}
+
+.sobre-imagem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.imagem-clinica-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+    /* Estado inicial para a animação (invisível e abaixado) */
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.img-clinica {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.8s ease;
+}
+
+/* Quando a classe 'revelado' for adicionada pelo JavaScript */
+.sobre-imagem.revelado .imagem-clinica-wrapper {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.img-gradient-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Gradiente verde água subindo */
+    background: linear-gradient(to top, rgba(13, 148, 136, 0.5), transparent 60%);
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+}
+
+.imagem-clinica-wrapper:hover .img-clinica {
+    transform: scale(1.05); /* Zoom sutil na imagem */
+}
+
+.imagem-clinica-wrapper:hover .img-gradient-overlay {
+    opacity: 1; /* Mostra o gradiente no hover */
+}
+
+/* Equipe de Desenvolvimento */
+.equipe-section {
+    position: relative;
+    overflow: hidden;
+    /* Imagem cobrindo a tela toda com um filtro mais escurinho via pseudo-elemento */
+    background: url('assets/img/faculdade.jpg') center / cover no-repeat;
+    border-top: 1px solid #e2e8f0;
+    padding: 80px 0; /* Espaço para o conteúdo respirar */
+}
+
+.equipe-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65); /* Filtro escuro para tirar o brilho da foto */
+    z-index: 0;
+}
+
+.equipe-layout-split {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.equipe-title-side {
+    flex: 1 1 300px;
+    max-width: 40%;
+}
+
+.equipe-grid-side {
+    flex: 1 1 500px;
+}
+
+.equipe-title-card {
+    background: rgba(255, 255, 255, 0.15); /* Fundo transparente */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* Removido margin-bottom, pois agora fica lado a lado */
+}
+
+.equipe-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Cards menores */
+    gap: 15px; /* Espaço menor entre os cards */
+    margin-top: 0;
+}
+
+.equipe-card {
+    background: rgba(255, 255, 255, 0.15); /* Transparente para ver a foto */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 20px 15px; /* Cards reduzidos */
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.equipe-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.membro-avatar {
+    width: 80px; /* Fotos menores */
+    height: 80px;
+    border-radius: 50%;
+    margin: 0 auto 15px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    overflow: hidden;
+    background: #e2e8f0;
+}
+
+.membro-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.equipe-card h3 {
+    font-size: 16px; /* Letra menor */
+    color: #ffffff; /* Letra branca para ler no escuro */
+    margin-bottom: 5px;
+}
+
+.equipe-card .cargo {
+    font-size: 13px;
+    color: #ffffff; /* Branco, conforme solicitado */
+    font-weight: bold;
+}
+
+/* ========================================================
+   AJUSTE DE CABEÇALHO E BOTÕES PARA MOBILE (MAX 768px)
+   ======================================================== */
+@media (max-width: 768px) {
+    /* Ajuste do Cabeçalho para não esmagar os links */
+    header {
+        flex-direction: column !important;
+        padding: 10px !important;
+        padding-top: 140px !important;
+        height: auto !important;
+    }
+
+    .logo-container {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    nav ul {
+        flex-direction: row !important;
+        justify-content: center !important;
+        gap: 10px !important;
+        padding: 10px 0 !important;
+    }
+
+    nav ul li a {
+        font-size: 12px !important;
+    }
+
+    /* Ajuste da Hero Section para centralizar no celular */
+    .hero-conteudo {
+        margin-top: 0;
+        justify-content: center; /* Centraliza o cartão inteiro no mobile */
+    }
+
+    .glass-card {
+        padding: 30px 20px;
+        border-radius: 20px;
+        width: 100%;
+        text-align: center; /* Volta a centralizar o texto no mobile */
+    }
+
+    .hero-title {
+        font-size: 40px !important;
+        margin-bottom: 25px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px !important;
+    }
+    
+    .hero-features {
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    /* Botões de especialidades empilhados no celular */
+    .botoes-fundo {
+        position: absolute !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        padding: 0 10% !important;
+        bottom: 30px !important;
+    }
+
+    .btn-pilula {
+        width: 100% !important;
+        font-size: 14px !important;
+        padding: 12px 20px !important;
+    }
+
+    .sobre-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .section-title {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Faz o conteúdo principal ocupar a tela toda */
+    .main-content {
+        margin-left: 0 !important;
+        padding: 60px 15px 20px 15px !important;
+    }
+
+    /* Organiza os cards do dashboard em uma coluna */
+    .cards-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Ajusta as tabelas para permitirem scroll lateral se forem grandes */
+    .tabela-container {
+        overflow-x: auto;
+    }
+}

@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viva Mulher - Início</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet" href="style-index.css">
+</head>
+
+<body>
+
+    <header class="header-transparente">
+        <div class="logo-container" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="cursor: pointer;">
+            <img src="assets/img/logo1.png" alt="Logo Viva Mulher" class="logo-img">
+        </div>
+        <nav id="main-nav">
+            <ul>
+                <li><a onclick="mostrarPagina('home')">INÍCIO</a></li>
+                <li><a onclick="mostrarPagina('login')">AGENDAMENTO</a></li>
+                <li><a onclick="mostrarPagina('clinicas')" style="cursor: pointer;">CLÍNICAS</a></li>
+                <li><a onclick="mostrarPagina('login')" class="nav-destaque">LOGIN/CADASTRO</a></li>
+            </ul>
+        </nav>
+    </header>
+    <button class="btn-mobile" onclick="toggleMenuMain()" style="display: none;">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <style>
+        /* CSS rápido para o botão aparecer apenas no mobile */
+        @media (max-width: 768px) {
+            .btn-mobile {
+                display: block !important;
+                position: fixed;
+                top: 15px;
+                right: 15px;
+                background: #0d9488;
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                border-radius: 5px;
+                z-index: 10000;
+                cursor: pointer;
+            }
+        }
+    </style>
+    <main id="home-view" class="view-ativa">
+        <section class="hero-section hero-gradient-split">
+            <!-- Camada 1: Vídeo posicionado à direita -->
+            <div class="hero-video-bg">
+                <video id="bg-video" autoplay loop muted playsinline preload="auto">
+                    <source src="assets/video/backgroundvideo.mp4" type="video/mp4">
+                </video>
+            </div>
+
+            <!-- Camada 2: Overlay de Degradê (Offwhite sólido na esquerda sumindo para a direita) -->
+            <div class="hero-video-gradient"></div>
+
+            <!-- Camada 3: Conteúdo de Texto na Esquerda -->
+            <div class="hero-content-container">
+                <div class="conteudo-clean">
+                    <h2 class="hero-subtitle-clean">Bem-vinda ao</h2>
+                    <h1 class="hero-title-clean">VIVA MULHER</h1>
+                    <div class="hero-features-clean">
+                        <span class="feature-item-clean"><i class="fas fa-clock"></i> Menos filas</span>
+                        <span class="feature-item-clean"><i class="fas fa-shield-alt"></i> Mais prevenção</span>
+                        <span class="feature-item-clean"><i class="fas fa-hand-holding-medical"></i> Mais cuidado</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: SERVIÇOS / ESPECIALIDADES EM CARDS -->
+        <section class="servicos-section">
+            <div class="container-carrossel">
+                <div class="carousel-wrapper">
+                    <button class="carousel-btn left" onclick="moverCarrossel(-1)"><i
+                            class="fas fa-chevron-left"></i></button>
+
+                    <div class="servicos-carousel" id="servicos-carousel">
+                        <div class="servico-card" onclick="abrirDescricao('ginecologia')">
+                            <div class="servico-img">
+                                <img src="assets/img/ginecologia.jpg" alt="Ginecologia">
+                            </div>
+                            <div class="servico-conteudo">
+                                <h3>Ginecologia</h3>
+                                <p class="servico-resumo">Prevenção, diagnóstico e tratamento focado na saúde íntima da
+                                    mulher.</p>
+                                <div class="servico-detalhes">
+                                    <p>Realizamos exames de rotina preventivos, tratamento de patologias, planejamento
+                                        familiar e inserção de contraceptivos (DIU/Implantes).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="servico-card" onclick="abrirDescricao('obstetricia')">
+                            <div class="servico-img">
+                                <img src="assets/img/obstetricia.jpg" alt="Obstetrícia">
+                            </div>
+                            <div class="servico-conteudo">
+                                <h3>Obstetrícia</h3>
+                                <p class="servico-resumo">Acompanhamento humanizado e seguro durante toda a gestação e
+                                    parto.</p>
+                                <div class="servico-detalhes">
+                                    <p>Assistência pré-natal completa, exames de ultrassonografia morfológica e
+                                        acompanhamento de gestações de alto risco.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="servico-card" onclick="abrirDescricao('mastologia')">
+                            <div class="servico-img">
+                                <img src="assets/img/Mastologia.jpg" alt="Mastologia">
+                            </div>
+                            <div class="servico-conteudo">
+                                <h3>Mastologia</h3>
+                                <p class="servico-resumo">Cuidado das glândulas mamárias, com ênfase na prevenção do
+                                    câncer.</p>
+                                <div class="servico-detalhes">
+                                    <p>Prevenção, diagnóstico precoce e tratamento clínico/cirúrgico, além do
+                                        acompanhamento de nódulos e cistos.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="servico-card" onclick="abrirDescricao('cirurgias')">
+                            <div class="servico-img">
+                                <img src="assets/img/Cirurgias.jpg" alt="Cirurgias">
+                            </div>
+                            <div class="servico-conteudo">
+                                <h3>Cirurgias</h3>
+                                <p class="servico-resumo">Procedimentos minimamente invasivos com equipe especializada.
+                                </p>
+                                <div class="servico-detalhes">
+                                    <p>Procedimentos cirúrgicos (videolaparoscopia e histeroscopia) para tratamento de
+                                        miomas e endometriose com rápida recuperação.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Novos Cards -->
+                        <div class="servico-card" onclick="abrirDescricao('pediatria')">
+                            <div class="servico-img">
+                                <img src="assets/img/Pediatria.jpg" alt="Pediatria">
+                            </div>
+                            <div class="servico-conteudo">
+                                <h3>Pediatria</h3>
+                                <p class="servico-resumo">Cuidado dedicado ao desenvolvimento infantil desde os
+                                    primeiros dias.</p>
+                                <div class="servico-detalhes">
+                                    <p>Acompanhamento de rotina, vacinação, orientação nutricional e tratamento das
+                                        principais doenças da infância.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="servico-card" onclick="abrirDescricao('nutricao')">
+                            <div class="servico-img">
+                                <img src="assets/img/Nutrição.jpg" alt="Nutrição">
+                            </div>
+                            <div class="servico-conteudo">
+                                <h3>Nutrição</h3>
+                                <p class="servico-resumo">Planos alimentares personalizados para cada fase da sua vida.
+                                </p>
+                                <div class="servico-detalhes">
+                                    <p>Acompanhamento nutricional focado em emagrecimento saudável, gestação, menopausa
+                                        e controle de doenças crônicas.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="servico-card" onclick="abrirDescricao('endocrinologia')">
+                            <div class="servico-img">
+                                <img src="assets/img/Endocrinologia.jpg" alt="Endocrinologia">
+                            </div>
+                            <div class="servico-conteudo">
+                                <h3>Endocrinologia</h3>
+                                <p class="servico-resumo">Tratamento de distúrbios hormonais e metabólicos com precisão.
+                                </p>
+                                <div class="servico-detalhes">
+                                    <p>Especialistas em distúrbios da tireoide, diabetes, obesidade e acompanhamento
+                                        especializado durante a menopausa.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="servico-card" onclick="abrirDescricao('psicologia')">
+                            <div class="servico-img">
+                                <img src="assets/img/Psicologia.jpg" alt="Psicologia">
+                            </div>
+                            <div class="servico-conteudo">
+                                <h3>Psicologia</h3>
+                                <p class="servico-resumo">Apoio emocional e saúde mental voltado para a mulher.</p>
+                                <div class="servico-detalhes">
+                                    <p>Acolhimento humanizado para depressão pós-parto, ansiedade, transições de vida e
+                                        terapia individual e familiar.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-btn right" onclick="moverCarrossel(1)"><i
+                            class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: SOBRE O PROJETO -->
+        <section class="sobre-section">
+            <!-- Vídeo de Fundo -->
+            <video class="sobre-bg-video" autoplay loop muted playsinline preload="auto">
+                <source src="assets/video/saquaremabck.mp4" type="video/mp4">
+            </video>
+            <!-- Overlay para garantir a leitura do texto -->
+            <div class="sobre-video-overlay"></div>
+            <div class="container-padrao" style="position: relative; z-index: 10;">
+                <div class="sobre-grid">
+                    <div class="sobre-texto">
+                        <h2 class="section-title">O que é o <span class="highlight-pink">Viva Mulher</span>?</h2>
+                        <p>O <strong>Viva Mulher</strong> é um projeto inovador focado em otimizar e transformar o
+                            atendimento à saúde feminina. Nosso principal objetivo é reduzir filas de espera e facilitar
+                            o acesso a consultas e exames preventivos, como ginecologia, mastologia e obstetrícia.</p>
+                        <p>Através da nossa plataforma, clínicas e pacientes se conectam de forma mais rápida, humana e
+                            eficiente, garantindo que o foco principal seja sempre o cuidado e a prevenção.</p>
+                        <div class="estatisticas-sobre">
+                            <div class="stat-item">
+                                <h3>+ Rapidez</h3>
+                                <p>Agendamentos simplificados</p>
+                            </div>
+                            <div class="stat-item">
+                                <h3>100%</h3>
+                                <p>Foco na saúde da mulher</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sobre-imagem scroll-reveal">
+                        <div class="imagem-clinica-wrapper"
+                            onclick="document.getElementById('modal-mapa').className='modal-ativo'"
+                            style="cursor: pointer;" title="Clique para ver no mapa">
+                            <img src="assets/img/clinicadamulher.jpg" alt="Clínica da Mulher" class="img-clinica">
+                            <div class="img-gradient-overlay"
+                                style="display: flex; justify-content: center; align-items: center;">
+                                <i class="fas fa-map-marker-alt"
+                                    style="color: white; font-size: 50px; text-shadow: 0 4px 15px rgba(0,0,0,0.4);"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SEÇÃO: EQUIPE DE DESENVOLVIMENTO -->
+        <section class="equipe-section">
+            <div class="container-padrao" style="position: relative; z-index: 1;">
+                <!-- Layout dividido para balancear a tela -->
+                <div class="equipe-layout-split">
+                    <!-- Lado do Título (Esquerda) -->
+                    <div class="equipe-title-side">
+                        <div class="equipe-title-card">
+                            <h2 class="section-title text-left" style="color: white; margin-bottom: 15px;">Nossa Equipe</h2>
+                            <p class="section-subtitle text-left"
+                                style="margin-bottom: 0; line-height: 1.6; color: #f1f5f9;">
+                                Nós somos alunos da <strong>Universidade de Vassouras (Univassouras)</strong> e bolsistas do projeto
+                                <strong>Conexão Universitária</strong>.
+                                Este software está sendo desenvolvido pelo nosso grupo de Práticas Extensionistas com o objetivo de
+                                promover o avanço tecnológico na área da saúde da cidade,
+                                retornando o investimento da Prefeitura em inovação e qualidade de vida para a população.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Lado dos Cards (Direita) -->
+                    <div class="equipe-grid-side">
+                        <div class="equipe-grid">
+                    <div class="equipe-card">
+                        <div class="membro-avatar"
+                            style="background: linear-gradient(135deg, #fbcfe8 0%, #e83e8c 100%);">
+                            <img src="assets/img/everaldo.jpeg" alt="Foto Aluno 1">
+                        </div>
+                        <h3>Everaldo Serafim</h3>
+                        <p class="cargo">Front-end & Design UX</p>
+                    </div>
+                    <div class="equipe-card">
+                        <div class="membro-avatar"
+                            style="background: linear-gradient(135deg, #ccfbf1 0%, #0d9488 100%);">
+                            <img src="assets/img/raphael.jpeg" alt="Foto Aluno 2">
+                        </div>
+                        <h3>Raphael Cavalcanti</h3>
+                        <p class="cargo">Desenvolvedor Back-end</p>
+                    </div>
+                    <div class="equipe-card">
+                        <div class="membro-avatar"
+                            style="background: linear-gradient(135deg, #fef3c7 0%, #d97706 100%);">
+                            <img src="assets/img/renan.jpeg" alt="Foto Aluno 3">
+                        </div>
+                        <h3>Renan Pollig</h3>
+                        <p class="cargo">Documentação</p>
+                    </div>
+                    <div class="equipe-card">
+                        <div class="membro-avatar"
+                            style="background: linear-gradient(135deg, #e0e7ff 0%, #4f46e5 100%);">
+                            <img src="assets/img/gabriel.jpeg" alt="Foto Aluno 4">
+                        </div>
+                        <h3>Gabriel Sued</h3>
+                        <p class="cargo">Desenvolvedor Back-end</p>
+                    </div>
+                    <div class="equipe-card">
+                        <div class="membro-avatar"
+                            style="background: linear-gradient(135deg, #f1f5f9 0%, #475569 100%);">
+                            <img src="assets/img/fernando.jpeg" alt="Foto Aluno 5">
+                        </div>
+                        <h3>Fernando Mello</h3>
+                        <p class="cargo">Tech Lead</p>
+                    </div>
+                    <div class="equipe-card">
+                        <div class="membro-avatar"
+                            style="background: linear-gradient(135deg, #fef08a 0%, #ca8a04 100%);">
+                            <img src="assets/img/matheus.jpeg" alt="Foto Aluno 6">
+                        </div>
+                        <h3>Matheus Fernando</h3>
+                        <p class="cargo">Diagramas de Arquitetura</p>
+                    </div>
+                    <div class="equipe-card">
+                        <div class="membro-avatar"
+                            style="background: linear-gradient(135deg, #dcfce7 0%, #16a34a 100%);">
+                            <img src="assets/img/marilia.jpeg" alt="Foto Aluno 7">
+                        </div>
+                        <h3>Marília Caetano</h3>
+                        <p class="cargo">Requisitos (Func. e Não Func.)</p>
+                    </div>
+                </div> <!-- Fim equipe-grid -->
+                </div> <!-- Fim equipe-grid-side -->
+                </div> <!-- Fim equipe-layout-split -->
+            </div>
+        </section>
+    </main>
+
+    <main id="clinicas-view" class="view-oculta" style="padding: 120px 0 60px 0; background-color: #f8fafc; min-height: 100vh;">
+        <div class="container-padrao">
+            <h2 class="section-title text-center" style="margin-bottom: 20px; color: #0d9488;">Clínicas e Unidades Atendidas</h2>
+            <p class="section-subtitle text-center" style="margin-bottom: 50px; color: #475569;">O nosso alvo é que a rede Viva Mulher atenda a toda a saúde de Saquarema, englobando hospitais, clínicas, postos de saúde da família e demais unidades de atendimento.</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <!-- Clínica 1 -->
+                <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <img src="assets/img/clinicadamulher.jpg" alt="Clínica da Mulher" style="width: 100%; height: 220px; object-fit: cover;">
+                    <div style="padding: 30px;">
+                        <h3 style="color: #333; margin-bottom: 15px; font-size: 22px;">Clínica da Mulher</h3>
+                        <p style="color: #666; font-size: 15px; margin-bottom: 25px; line-height: 1.6;">Referência no atendimento integral à saúde feminina em Saquarema. Especialidades variadas e exames preventivos em um só lugar.</p>
+                        <button onclick="document.getElementById('modal-mapa').className='modal-ativo'" class="btn-auth" style="padding: 12px 25px; font-size: 15px; width: auto; border-radius: 8px;">Ver Localização</button>
+                    </div>
+                </div>
+                
+                <!-- Clínica 2 -->
+                <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <img src="assets/img/hospital_municipal.png" alt="Hospital Municipal" style="width: 100%; height: 220px; object-fit: cover;">
+                    <div style="padding: 30px;">
+                        <h3 style="color: #333; margin-bottom: 15px; font-size: 22px;">Hospital Municipal N. Sra. de Nazareth</h3>
+                        <p style="color: #666; font-size: 15px; margin-bottom: 25px; line-height: 1.6;">Atendimentos de urgência, emergência, maternidade e cirurgias especializadas com infraestrutura completa.</p>
+                        <button onclick="document.getElementById('modal-mapa').className='modal-ativo'" class="btn-auth" style="padding: 12px 25px; font-size: 15px; width: auto; border-radius: 8px; background-color: #0d9488;">Ver Localização</button>
+                    </div>
+                </div>
+
+                <!-- Clínica 3 -->
+                <div style="background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; transition: transform 0.3s;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
+                    <img src="assets/img/posto_saude.png" alt="Postos de Saúde" style="width: 100%; height: 220px; object-fit: cover;">
+                    <div style="padding: 30px;">
+                        <h3 style="color: #333; margin-bottom: 15px; font-size: 22px;">Postos de Saúde da Família (ESF)</h3>
+                        <p style="color: #666; font-size: 15px; margin-bottom: 25px; line-height: 1.6;">Atendimento primário e preventivo distribuído por todos os bairros do município, garantindo acesso facilitado à saúde.</p>
+                        <button onclick="document.getElementById('modal-mapa').className='modal-ativo'" class="btn-auth" style="padding: 12px 25px; font-size: 15px; width: auto; border-radius: 8px; background-color: #6b21a8;">Ver Localização</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main id="login-view" class="view-oculta view-auth">
+        <div class="auth-card">
+            <h2>Acesse sua conta</h2>
+            <form onsubmit="realizarLogin(event)">
+                <div class="input-group">
+                    <label>Perfil de Acesso</label>
+                    <select id="tipo-acesso" required>
+                        <option value="paciente">Sou Paciente</option>
+                        <option value="medico">Sou Médico(a) / Gestão</option>
+                        <option value="recepcao">Sou da Recepção</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label>E-mail</label>
+                    <input type="email" id="login-email" placeholder="seu@email.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Senha</label>
+                    <input type="password" id="login-senha" placeholder="Digite sua senha" required>
+                </div>
+                <button type="submit" class="btn-auth">Entrar</button>
+                <p class="auth-link">Não possui conta? <a onclick="mostrarPagina('cadastro')">Cadastre-se</a></p>
+            </form>
+        </div>
+    </main>
+
+    <main id="cadastro-view" class="view-oculta view-auth">
+        <div class="auth-card" style="max-width: 450px;">
+            <h2>Crie sua conta</h2>
+            <form onsubmit="realizarCadastro(event)">
+                <div class="input-group">
+                    <label>Que tipo de conta deseja criar?</label>
+                    <select id="tipo-cadastro" onchange="mudarCamposCadastro()" required>
+                        <option value="paciente">Sou Paciente</option>
+                        <option value="medico">Sou Médico(a) / Enfermagem</option>
+                        <option value="recepcao">Sou da Clínica / Gestão</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Nome Completo / Nome da Clínica</label>
+                    <input type="text" id="cad-nome" placeholder="Digite o nome" required>
+                </div>
+
+                <div id="campos-profissionais" style="display: none;">
+                    <div class="input-group">
+                        <label id="label-registro">Registro Profissional</label>
+                        <input type="text" id="input-registro" placeholder="Ex: CRM 12345-RJ">
+                    </div>
+                    <div class="input-group">
+                        <label>CNPJ da Clínica de Atuação</label>
+                        <input type="text" id="cad-cnpj" placeholder="00.000.000/0001-00">
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>E-mail</label>
+                    <input type="email" id="cad-email" placeholder="seu@email.com" required>
+                </div>
+                <div class="input-group">
+                    <label>Senha</label>
+                    <input type="password" id="cad-senha" placeholder="Crie uma senha forte" required>
+                </div>
+
+                <button type="submit" class="btn-auth">Cadastrar</button>
+                <p class="auth-link">Já possui cadastro? <a onclick="mostrarPagina('login')">Fazer login</a></p>
+            </form>
+        </div>
+    </main>
+
+    <!-- JANELA FLUTUANTE (MODAL) PARA DESCRIÇÕES -->
+    <div id="modal-info" class="modal-oculto">
+        <div class="auth-card" style="position: relative; max-width: 500px; text-align: center;">
+            <button class="btn-fechar-modal" onclick="fecharDescricao()">✖</button>
+            <h2 id="modal-titulo" style="color: #e83e8c;">Especialidade</h2>
+            <p id="modal-texto" style="color: #475569; font-size: 16px; line-height: 1.6; margin-bottom: 25px;">
+                Descrição do procedimento aparecerá aqui...</p>
+            <button class="btn-auth" onclick="fecharDescricao(); mostrarPagina('login');">Agendar Agora</button>
+        </div>
+    </div>
+
+    <!-- JANELA FLUTUANTE (MODAL) PARA O MAPA -->
+    <div id="modal-mapa" class="modal-oculto">
+        <div class="auth-card"
+            style="position: relative; max-width: 700px; width: 95%; padding: 30px; text-align: center;">
+            <button class="btn-fechar-modal"
+                onclick="document.getElementById('modal-mapa').className='modal-oculto'">✖</button>
+            <h2 style="color: #0d9488; font-family: 'Montserrat', sans-serif; font-size: 26px; margin-bottom: 20px;">
+                Nossa Localização</h2>
+            <div
+                style="width: 100%; height: 350px; border-radius: 12px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.15);">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3675.4132013048666!2d-42.48161320321049!3d-22.89812540000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x975f002698c093%3A0x2dc6fb2bb6e6caf2!2sCl%C3%ADnica%20da%20Mulher!5e0!3m2!1spt-BR!2sbr!4v1780066619282!5m2!1spt-BR!2sbr"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <button class="btn-auth" style="margin-top: 25px; font-family: 'Open Sans', sans-serif;"
+                onclick="window.open('https://maps.google.com/?q=-23.54019185,-46.66668385', '_blank')">Abrir rota no
+                Google Maps</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // O controle pelo scroll foi removido para garantir a fluidez total.
+        // O vídeo agora usa autoplay e loop nativos do navegador.
+
+        // === EFEITO DE APARECER (SCROLL REVEAL) ===
+        document.addEventListener("DOMContentLoaded", function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revelado');
+                        // Se quiser que anime toda vez que rolar, basta remover a linha abaixo.
+                        // observer.unobserve(entry.target); 
+                    }
+                });
+            }, {
+                threshold: 0.2, // 20% visível para disparar
+                rootMargin: "0px 0px -50px 0px" // Dispara um pouco antes
+            });
+
+            document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+
+</html>
