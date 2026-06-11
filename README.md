@@ -28,7 +28,6 @@ Este projeto foi construído focando na máxima fluidez e segurança:
 ## 🚀 Como Executar
 
 Por ser um projeto web "client-side", a execução é extremamente simples:
-
 1. Faça o clone ou o download deste repositório.
 2. Abra a pasta do projeto.
 3. Dê um duplo clique no arquivo `index.html` para abri-lo no seu navegador padrão (recomendamos Google Chrome, Edge ou Firefox).
