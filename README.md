@@ -33,5 +33,23 @@ Por ser um projeto web "client-side", a execução é extremamente simples:
 3. Dê um duplo clique no arquivo `index.html` para abri-lo no seu navegador padrão (recomendamos Google Chrome, Edge ou Firefox).
 4. Navegue através dos menus "INÍCIO", "AGENDAMENTO", "CLÍNICAS" e "LOGIN/CADASTRO" para experimentar o fluxo do usuário.
 
+## 🌐 Publicação em URL pública
+
+O projeto foi preparado para publicação no Netlify. Como ele e um site estatico, basta conectar o repositório ou enviar a pasta do projeto, usando a configuracao abaixo:
+
+- Diretorio de publicacao: `.`
+- Comando de build: nenhum
+
+Se você conectar o repo no painel do Netlify, a URL final vai ficar no formato `https://seu-site.netlify.app`.
+
+Passo a passo rapido:
+1. Acesse o painel do Netlify.
+2. Clique em "Add new site" e depois em "Import an existing project".
+3. Conecte o repositório do GitHub ou arraste a pasta do projeto.
+4. Confirme que o diretório de publicacao esta como `.`.
+5. Faça o deploy.
+
+Se preferir publicar sem Git, use a opcao de upload manual da pasta do projeto.
+
 ---
 *Este é um projeto acadêmico/protótipo de apresentação.*
