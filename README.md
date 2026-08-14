@@ -35,21 +35,35 @@ Por ser um projeto web "client-side", a execução é extremamente simples:
 
 ## 🌐 Publicação em URL pública
 
-O projeto foi preparado para publicação no Netlify. Como ele e um site estatico, basta conectar o repositório ou enviar a pasta do projeto, usando a configuracao abaixo:
+O projeto foi preparado para publicação em plataformas cloud. Como é um site estático, basta conectar o repositório ou enviar a pasta do projeto.
 
-- Diretorio de publicacao: `.`
+### 🚀 **Opção 1: Vercel (Recomendado)**
+
+1. Acesse [vercel.com](https://vercel.com)
+2. Clique em **"New Project"**
+3. Conecte seu repositório GitHub
+4. Vercel detectará automaticamente a configuração (`vercel.json`)
+5. Clique em **"Deploy"**
+
+A URL final ficará no formato: `https://seu-projeto.vercel.app`
+
+**Sem Git:** Use o comando `vercel` via CLI ou faça upload manual na dashboard do Vercel.
+
+### 📦 **Opção 2: Netlify**
+
+1. Acesse o painel do Netlify
+2. Clique em **"Add new site"** → **"Import an existing project"**
+3. Conecte o repositório do GitHub ou arraste a pasta do projeto
+4. Confirme que o diretório de publicação está como `.`
+5. Faça o deploy
+
+A URL final ficará no formato: `https://seu-site.netlify.app`
+
+**Configuração em ambos os casos:**
+- Diretório de publicação: `.`
 - Comando de build: nenhum
 
-Se você conectar o repo no painel do Netlify, a URL final vai ficar no formato `https://seu-site.netlify.app`.
-
-Passo a passo rapido:
-1. Acesse o painel do Netlify.
-2. Clique em "Add new site" e depois em "Import an existing project".
-3. Conecte o repositório do GitHub ou arraste a pasta do projeto.
-4. Confirme que o diretório de publicacao esta como `.`.
-5. Faça o deploy.
-
-Se preferir publicar sem Git, use a opcao de upload manual da pasta do projeto.
+Se preferir publicar sem Git, use a opção de upload manual.
 
 ---
 *Este é um projeto acadêmico/protótipo de apresentação.*
