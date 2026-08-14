@@ -153,3 +153,5 @@ Arquivos envolvidos:
 
 ## Observacao final
 Este projeto continua sendo um prototipo academico. O foco aqui e reduzir risco, alinhar a documentacao com o codigo e deixar o fluxo mais seguro para demonstracao.
+
+#Teste de Commit 
