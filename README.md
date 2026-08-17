@@ -75,5 +75,5 @@ Este projeto é um protótipo acadêmico desenvolvido exclusivamente e para fins
 - Não devem ser inseridos dados pessoais, credenciais reais ou informações sensíveis de saúde.
 - O projeto não substitui um sistema profissional em conformidade com a LGPD.
 
----
+----
 *Este é um projeto acadêmico/protótipo de apresentação.*
