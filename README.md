@@ -19,11 +19,10 @@ O alvo do projeto é demonstrar que a rede Viva Mulher tem potencial para atende
 
 ## 💻 Tecnologias Utilizadas
 
-Este projeto foi construído focando na máxima fluidez e segurança:
+Este projeto foi construído com foco em fluidez, organização e demonstração das funcionalidades:
 - **HTML5 & CSS3 Vanilla**: Código limpo, componentizado em CSS flexbox e grid, sem frameworks pesados, garantindo carregamento instantâneo.
 - **JavaScript (ES6)**: Controle de fluxo entre views (Single Page Application - SPA simulado), animações e lógicas de interação de interface.
 - **Google Maps Embed API**: Integração com mapas reais para visualização das unidades médicas.
-- **Ofuscação de Código**: O arquivo `script.js` de produção é ofuscado via rotinas automatizadas em Python, protegendo a lógica do sistema contra cópias indevidas e simula técnicas reais de segurança de mercado.
 
 ## 🚀 Como Executar
 
@@ -64,6 +63,17 @@ A URL final ficará no formato: `https://seu-site.netlify.app`
 - Comando de build: nenhum
 
 Se preferir publicar sem Git, use a opção de upload manual.
+
+## Limitações Conhecidas (Protótipo)
+
+Este projeto é um protótipo acadêmico desenvolvido exclusivamente e para fins de demonstração.
+
+- A aplicação funciona 100% no lado do cliente ('cliente-side').
+- Não existe backend, servidor de autenticação ou banco de dados real.
+- Algumas informações são armazenadas localmente no navegador apenas para simular o funcionamento do sistema.
+- Os mecanismos de login, sessão e controle de acesso não oferecem segurança adequada para uso em produção.
+- Não devem ser inseridos dados pessoais, credenciais reais ou informações sensíveis de saúde.
+- O projeto não substitui um sistema profissional em conformidade com a LGPD.
 
 ---
 *Este é um projeto acadêmico/protótipo de apresentação.*
